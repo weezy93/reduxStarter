@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom'; // helper method to attach components to DOM
 import SearchBar from './components/SearchBar';
 
+import { apiKey } from '../config.js'
+
 class App extends Component {
   render () { // short syntax to create function
     // render can only return one element, so everything must be in a parent div
