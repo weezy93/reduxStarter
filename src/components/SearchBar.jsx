@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-  constructor() { // every class has constructor method, this is ES6 syntax
+  constructor(props) { // every class has constructor method, this is ES6 syntax
     super(); // NEEDS TO BE ON FIRST LINE OF constructor() - calls parent constructor
     this.state = { term: 'words' }
   }
 
+  // do not want to reset this.state, don't want to mutate data. maintain state.
+  // this.state.term = term mutates the original data. want to be non-destructive
+  // with ES6, if a key value pair are the same, you only need one value {term: term}   =>  {term}
   onInputChange(term) {
-    // do not want to reset this.state, don't want to mutate data. maintain state.
-    // this.state.term = term mutates the original data. want to be non-destructive
     this.setState({ term });
-    // with ES6, if a key value pair are the same, you only need one value {term: term}   =>  {term}
+    this.props.onSearchTermChange(term);
   }
 
   render() {
